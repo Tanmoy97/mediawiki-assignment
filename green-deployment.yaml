@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: php-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: php-app
+        version: green
+    spec:
+      containers:
+      - name: php-app
+        image: tanmoy918/mediawiki:tanmoyserver
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: "mediawikiserver.mysql.database.azure.com"
+        - name: DB_NAME
+          value: "mediawikimysql"
+        - name: DB_USER
+          value: "Tanmoy123"
+        - name: DB_PASSWORD
+          value: "Tkhatua@123"
