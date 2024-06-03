@@ -1,0 +1,350 @@
+New-AzAksCluster -ResourceGroupName cloud-shell-storage-centralindia -Name myCluster NodeCount 1 ``
+    -EnableManagedIdentity ``
+    -GenerateSshKey
+New-AzAksCluster -ResourceGroupName cloud-shell-storage-centralindia -Name myCluster NodeCount 1 -EnableManagedIdentity -GenerateSshKey
+az
+az --version
+cls
+az group create --name AksMediawiki --location centralindia
+az aks create --resource-group AksMediawiki --name AKSCluster1 --enable-managed-identity --node-count 1 --generate-ssh-keys
+az aks get-credentials --resource-group AksMediawiki --name AKSCluster1
+kubectl get nodes
+vi deployment.yaml
+az
+cat ./deployment.yaml
+kubectl apply -f ./deployment.yaml
+runtime="5 minutes"
+endtime=$(date -ud "$runtime" +%s)
+while [[ $(date -u +%s) -le $endtime ]]
+do`
+   STATUS=$(kubectl get pods -l app=store-front -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}')
+   echo $STATUS
+   if [ "$STATUS" == 'True' ]
+   then
+      export IP_ADDRESS=$(kubectl get service store-front --output 'jsonpath={..status.loadBalancer.ingress[0].ip}')
+      echo "Service IP Address: $IP_ADDRESS"
+      break
+   else
+      sleep 10
+   fi
+done
+cls
+kubectl get nodes
+kubectl get service
+kubectl get po
+cat ./deployment.yaml
+az
+cls
+cat ./deployment.yaml
+vi ./deployment.yaml
+cat ./deployment.yaml
+vi ./deployment.yaml
+cat ./deployment.yaml
+kubectl apply -f ./deployment.yaml
+kubectl get node
+kubectl get po
+oc get services
+kubectl get services
+kubectl whoami -c
+kubectl get services
+kubectl describe service php-app-service
+kubectl cluster-info
+az
+cls
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+kubectl get services -o wide -w -n ingress-nginx
+cls
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+helm install ingress-nginx1 ingress-nginx1/ingress-nginx1
+cls
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+helm install ingress-nginx ingress-nginx/ingress-nginx
+helm list
+helm delete PS /home/tanmoy> helm install ingress-nginx ingress-nginx/ingress-nginx
+helm delete ingress-nginx
+helm list
+cls
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+kubectl get service --namespace default ingress-nginx-controller --output wide --watch
+cls
+vi ./deployment.yaml
+cat ./deployment.yaml
+kubectl apply -f ./deployment.yaml
+kubectl get node
+kubectl get pods
+kubectl get services
+ping mediawiki.com
+ping 4.188.104.218
+az aks approuting enable --resource-group AksMediawiki --name AKSCluster1
+kubectl get ingress AKSCluster1
+kubectl get ingress default
+kubectl --version
+kubectl version
+cat ./deployment.yaml
+vi ./deployment.yaml
+kubectl apply -f ./deployment.yaml
+oc get po
+kubectl get pods
+kubectl get services
+kubectl api-resources
+kubectl api-versions
+kubectl get ingress AKSCluster1
+kubectl get ingresses AKSCluster1
+cls
+vi ./deployment.yaml
+kubectl apply -f ./deployment.yaml
+kubectl get services
+cat ./deployment.yaml
+vi ingress.yaml
+kubectl apply -f ingress.yaml
+oc get services
+kubectl get services
+kubectl get ingress AKSCluster1
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+kubectl get services -o wide -w -n ingress-nginx
+kubectl ingress php-app-ingress
+kubectl describe ingress php-app-ingress
+kubectl get pods --all-namespaces | grep ingress
+kubectl get service --all-namespaces | grep ingress
+kubectl get services
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+kubectl delete clusterrole ingress-nginx
+kubectl delete clusterrolebinding ingress-nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+cls
+kubectl get clusterrole ingress-nginx -n <namespace>
+kubectl get ingressClasses
+ubectl delete ingressClasses nginx
+kubectl delete ingressClasses nginx
+kubectl get ingressClasses
+kubectl delete webapprouting.kubernetes.azure.com
+kubectl get ingressClasses
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+kubectl get services -o wide -w -n ingress-nginx
+kubectl get service --namespace default ingress-nginx-controller --output wide --watch
+cls
+helm list --all-namespaces
+helm list
+helm uninstall ingress-nginx
+helm list
+cls
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+hem list
+helm list
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace default
+helm list
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace ingress-nginx
+kubectl get service --namespace ingress-nginx ingress-nginx-controller --output wide --watch
+cls
+vi php-app-blue-deployment.yaml
+vi php-app-blue-service.yaml
+vi php-app-green-deployment.yaml
+vi php-app-green-service.yaml
+kubectl apply -f php-app-blue-deployment.yaml
+kubectl apply -f php-app-blue-service.yaml
+kubectl apply -f php-app-green-deployment.yaml
+kubectl apply -f php-app-green-service.yaml
+vi ingress-blue.yaml
+kubectl apply -f ingress-blue.yaml
+kubectl get services
+kubectl get po
+ls -lrt
+kebectl delete ingress.yaml
+rm -rf ingress.yaml
+ls -lrt
+cat ./ingress-blue.yaml
+kubectl get services
+kubectl get pods -n ingress-nginx
+kubectl logs ingress-nginx-controller-6dfcb8658d-7qhks -n ingress-nginx
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --set controller.ingressClassResource.default=true \
+cls
+vi ./ingress-blue.yaml
+kubectl apply -f ingress-blue.yaml
+kubectl get svc -n ingress-nginx
+kubectl get services
+kubectl get ingress
+kubectl describe ingress php-app-ingress
+nslookup mediawiki.com
+kubectl delete ingress <ingress-name>
+kubectl delete ingress php-app-ingress
+vi ./ingress-blue.yaml
+kubectl apply -f ingress-blue.yaml
+cat ./ingress-blue.yaml
+vi ./ingress-blue.yaml
+kubectl apply -f ingress-blue.yaml
+kubectl get services
+dig mediawiki.com
+ls -lrt
+kubectl apply -f ingress-blue.yaml
+kubectl apply -f php-app-blue-deployment.yaml
+kubectl apply -f php-app-blue-service.yaml
+kubectl apply -f php-app-green-deployment.yaml
+kubectl apply -fphp-app-green-service.yaml
+kubectl apply -f php-app-green-service.yaml
+kubectl get services
+az
+cls
+ls -lrt
+cat ./deployment.yaml
+vi ./deployment.yaml
+34;105R34;106R34;112R34;113R34;114R34;115R34;116R34;127R34;162R34;169R34;169R34;9R34;12R34;13R34;14R34;15R34;21R34;22R34;60R34;61R34;80R34;62R34;81R34;88R34;92R34;93R34;89R34;94R34;90R34;91R34;92R34;95R34;96R34;145R34;146R34;151R34;152R34;152R34;171R34;159R34;28R34;29R34;23R34;40R34;24R34;58R34;59R34;64R34;70R34;46R34;52R34;72R34;98R34;99R34;100R34;101R34;74R34;75R34;76R34;77R34;78R34;102R34;79R34;82R34;126R34;127R34;128R34;133R34;32R34;34R34;139R34;140R34;141R34;35R34;38R34;44R34;9R34;10R34;85R34;86R34;13R34;19R34;32R34;33R34;34R34;121R34;37R34;44R34;143R34;45R34;46R34;150R34;49R34;55R34;56R34;74R34;22R34;81R34;46R34;93R34;47R34;48R34;104R34;64R34;123R34;70R34;83R34;104R34;146R34;149R34;109R34;116R34;130R34;144R34;153R34;53R34;159R34;160R34;54R34;55R34;19R34;60R34;74R34;80R34;106R34;44R34;118R34;56R34;57R34;130R34;78R34;82R34;132R34;136Rc34;83R34;156R34;108R34;129R34;14R34;130R34;137R34;35R34;157R34;158Rl34;55R34;14Rs34;67R34;73R34;21R34;26R34;85R34;87R34;43R34;44R34;49R34;92R34;93R34;94R34;74R
+34;105R34;106R34;112R34;113R34;114R34;115R34;116R34;127R34;162R34;169R34;170R34;171R34;1R34;169R34;9R34;12R34;13R34;14R34;15R34;21R34;22R34;81R34;91R34;92R34;93R34;89R34;94R34;90R34;91R34;92R34;95R34;96R34;145R34;151R34;152R34;152R34;171R34;159R34;28R34;40R34;58R34;31R34;59R34;64R34;70R34;46R34;52R34;72R34;99R34;101R34;74R34;75R34;76R34;77R34;78R34;102R34;127R34;33R34;139R34;140R34;141R34;35R34;38R34;44R34;10R34;86R34;13R34;19R34;32R34;34R34;45R34;46R34;150R34;49R34;55R34;56R34;22R34;81R34;46R34;47R34;48R34;104R34;64R34;123R34;70R34;83R34;104R34;146R34;106R34;149R34;109R34;116R34;117R34;130R34;144R34;27R34;41R34;153R34;158R34;159R34;160R34;55R34;19R34;60R34;74R34;80R34;106R34;44R34;56R34;57R34;130R34;78R34;132R34;136Rc34;83R34;156R34;108R34;129R34;14R34;130R34;137R34;35R34;157R34;158Rl34;55R34;14Rs34;67R34;73R34;21R34;85R34;44R34;49R34;92R34;93R34;94R34;103R34;74R
+cls
+ls -lrt
+vi ./deployment.yaml
+cat ./deployment.yaml
+cls
+ls -lrt
+rm -rf ./php-app-blue-deployment.yaml
+ls -lrt
+rm -rf php-app-blue-service.yaml
+ls -lrt
+rm -rf php-app-green-deployment.yaml
+ls -lrt
+rm -rf php-app-green-service.yaml
+ls -lrt
+rm -rf ingress-blue.yaml
+ls -lrt
+cls
+kubectl get po
+vi ./deployment.yaml
+cls
+vi blue-deployment.yaml
+vi blue-service.yaml
+kubectl apply -f blue-deployment.yaml
+kubectl apply -f blue-service.yaml
+kubectl get deployments
+kubectl get services
+kubectl get pods -l app=myapp,version=blue
+vi ./blue-deployment.yaml
+vi ./blue-service.yaml
+kubectl apply -f blue-deployment.yaml
+kubectl apply -f blue-service.yaml
+kubectl get deployments
+kubectl get services
+kubectl get pods -l app=myapp,version=blue
+cls
+vi green-deployment.yaml
+vi green-service.yaml
+kubectl apply -f green-deployment.yaml
+kubectl apply -f green-service.yaml
+kubectl get deployments
+kubectl get services
+kubectl get pods -l app=myapp,version=green
+kubectl service blue-service --url
+kubectl describe blue-service
+kubectl describe service blue-service
+cls
+ls -lrt
+cls
+ls -lrt
+rm -rf ./deployment.yaml
+ls -lrt
+kubectk get services
+kubectl get services
+ls -lrt
+kubectl get po
+cls
+ls -lrt
+kubectl get po
+kubectl get services
+cls
+rm -rf ./deployment.yaml
+ls -lrt
+kubectl get po
+vi ./blue-deployment.yaml
+vi ./blue-service.yaml
+kubectl apply -f blue-deployment.yaml
+kubectl apply -f blue-service.yaml
+kubectl get services
+kubectl delete service blue-service
+kubectl get services
+ls -lrt
+ kubectl apply -f blue-service.yaml
+kubectl get services
+cls
+ls -lrt
+vi green-deployment.yaml
+cat ./green-deployment.yaml
+vi ./green-service.yaml
+kubectl get services
+kubectl delete service green-service
+kubectl get services
+kubectl apply -f green-deployment.yaml
+kubectl apply -f green-service.yaml
+cls
+kubectl get services
+kubectl get po
+kebectl get deployment
+kubectl get deployment
+kubectl delete deployment blue-deployment
+kubectl get deployment
+kubectl delete deployment green-deployment
+kubectl get deployment
+kubectl get services
+cls
+ls -lrt
+vi deployment.yaml
+kubectl get deployment
+vi main-deployment.yaml
+kubectl apply -f main-deployment.yaml
+kubectl get deployment
+kubectl get services
+cls
+vi blue-service-lb.yaml
+vi green-service-lb.yaml
+kubectl apply -f blue-service-lb.yaml
+kubectl apply -f green-service-lb.yaml
+kubectl get svc blue-service
+kubectl get svc green-service
+kubectl get svc blue-service
+kubectl get svc green-service
+kubectl get svc 
+kubectl describe svc blue-service
+kubectl get svc 
+nslookup www.mediawiki.com ns1-33.azure-dns.com
+nslookup phpgreen.mediawiki.com ns1-33.azure-dns.com
+nslookup www.mediawiki.com ns1-33.azure-dns.com
+cls
+ls -lrt
+kubectl get svc 
+nslookup www.app.com ns3-32.azure-dns.org.
+kubectl get po
+ping 4.213.47.133
+kubectl get services
+nslookup www.mediawiki.com ns1-33.azure-dns.com
+cls
+ls -lrt
+kubectl get services
+ls -lrt
+kubectl get services
+oc get po
+kubectl get po
+ls -lrt
+echo "# mediawiki-assignment" >> README.md
+ls -lrt
+git init
+ls -lrt
+git add README.md
+git commit -m "first commit"
+git config --global user.email "tanmoykhatua97@gmail.com"
+git config --global user.name "Tanmoy"
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Tanmoy97/mediawiki-assignment.git
+git push -u origin main
