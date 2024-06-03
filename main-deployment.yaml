@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: tanmoy918/mediawiki:tanmoyserver
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: "mediawikiserver.mysql.database.azure.com"
+        - name: DB_NAME
+          value: "mediawikimysql"
+        - name: DB_USER
+          value: "Tanmoy123"
+        - name: DB_PASSWORD
+          value: "Tkhatua@123"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-app-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: php-app
