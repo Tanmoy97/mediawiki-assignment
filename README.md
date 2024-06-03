@@ -24,3 +24,6 @@ MySQL Database, Helm,  Blue green deployment and a README file.
 
 #Deployment Output:
 
+![MediaWiki_Install Complete status](https://github.com/Tanmoy97/mediawiki-assignment/assets/53449205/71bf852c-6179-4d67-954a-08bf7d748535)
+
+
